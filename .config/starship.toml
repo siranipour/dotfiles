@@ -1,0 +1,10 @@
+[directory]
+truncation_length = 2
+fish_style_pwd_dir_length = 1
+
+[gcloud]
+disabled = true
+
+[python]
+symbol = " "
+
