@@ -28,3 +28,6 @@ symbol = " "
 
 [rust]
 symbol = "󱘗 "
+
+[package]
+disabled = true
