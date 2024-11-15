@@ -8,3 +8,23 @@ disabled = true
 [python]
 symbol = " "
 
+[c]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[lua]
+symbol = " "
+
+[rust]
+symbol = "󱘗 "
