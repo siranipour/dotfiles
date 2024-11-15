@@ -1,26 +1,26 @@
+# # ~/.zshrc
+
+eval "$(starship init zsh)"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/shayaniranipour/mambaforge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/Users/shayaniranipour/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/shayaniranipour/mambaforge/etc/profile.d/conda.sh" ]; then
-        . "/Users/shayaniranipour/mambaforge/etc/profile.d/conda.sh"
+    if [ -f "/Users/shayaniranipour/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/Users/shayaniranipour/miniforge3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/shayaniranipour/mambaforge/bin:$PATH"
+        export PATH="/Users/shayaniranipour/miniforge3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 
-if [ -f "/Users/shayaniranipour/mambaforge/etc/profile.d/mamba.sh" ]; then
-    . "/Users/shayaniranipour/mambaforge/etc/profile.d/mamba.sh"
+if [ -f "/Users/shayaniranipour/miniforge3/etc/profile.d/mamba.sh" ]; then
+    . "/Users/shayaniranipour/miniforge3/etc/profile.d/mamba.sh"
 fi
 # <<< conda initialize <<<
 #
-# # ~/.zshrc
-
-eval "$(starship init zsh)"
 
 # history setup
 HISTFILE=$HOME/.zhistory
