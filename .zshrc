@@ -32,10 +32,14 @@ setopt hist_ignore_dups
 setopt hist_verify
 
 # completion using arrow keys (based on history)
-bindkey '^[[A' history-search-backward
-bindkey '^[[B' history-search-forward
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# gives fish style arrow key search
+source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='underline'
 
 # Search files using ripgrep
 alias rf="rg --files --hidden | rg"
@@ -55,7 +59,5 @@ alias less="bat"
 alias cd="z"
 alias ..="cd .."
 
-
 # ---- Zoxide (better cd) ----
 eval "$(zoxide init zsh)"
-
