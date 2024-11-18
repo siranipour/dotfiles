@@ -40,3 +40,6 @@ disabled = true
 [time]
 disabled = false
 time_format = "%F %T"
+
+[fill]
+symbol = " "
