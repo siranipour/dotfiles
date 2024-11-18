@@ -5,7 +5,7 @@ local config = wezterm.config_builder()
 config.color_scheme = 'OneDark (base16)'
 
 
-config.font_size = 13
+config.font_size = 14
 
 config.hide_tab_bar_if_only_one_tab = true
 config.window_decorations = "RESIZE"
@@ -18,4 +18,3 @@ config.audible_bell = "Disabled"
 config.window_close_confirmation = "NeverPrompt"
 
 return config
-
