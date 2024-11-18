@@ -46,6 +46,9 @@ alias ll="ls -l"
 alias cd="z"
 alias ..="cd .."
 
+export BAT_THEME=OneHalfDark
+alias cat="bat"
+
 # ---- Zoxide (better cd) ----
 eval "$(zoxide init zsh)"
 
