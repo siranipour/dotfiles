@@ -37,17 +37,23 @@ bindkey '^[[B' history-search-forward
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Search files using ripgrep
+alias rf="rg --files --hidden | rg"
+
 # ---- Eza (better ls) -----
 alias ls="eza --icons=always --color=always --git"
 
 alias l="ls"
 alias ll="ls -l"
 
+# ---- bat (better cat) -----
+export BAT_THEME=OneHalfDark
+alias cat="bat"
+#
+# ---- zoxide (better cd) -----
 alias cd="z"
 alias ..="cd .."
 
-export BAT_THEME=OneHalfDark
-alias cat="bat"
 
 # ---- Zoxide (better cd) ----
 eval "$(zoxide init zsh)"
