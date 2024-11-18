@@ -1,3 +1,8 @@
+format = "$all$fill$time"
+
+[line_break]
+disabled = true
+
 [directory]
 truncation_length = 2
 fish_style_pwd_dir_length = 1
@@ -31,3 +36,7 @@ symbol = "󱘗 "
 
 [package]
 disabled = true
+
+[time]
+disabled = false
+time_format = "%F %T"
