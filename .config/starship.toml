@@ -1,4 +1,4 @@
-format = "$all$fill$time"
+format = "$all$fill$time\n$character"
 
 [line_break]
 disabled = true
