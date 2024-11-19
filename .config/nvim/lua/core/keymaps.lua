@@ -23,3 +23,4 @@ keymap.set("n", "<leader>fr", "<cmd> Telescope oldfiles<cr>", { desc = "Fuzzy fi
 keymap.set("n", "<leader>fs", "<cmd> Telescope live_grep<cr>", { desc = "Find string in cwd" })
 keymap.set("n", "<leader>fc", "<cmd> Telescope grep_string<cr>", { desc = "Find string under cursor" })
 keymap.set("n", "<leader>fk", "<cmd> Telescope keymaps<cr>", { desc = "Find keymaps" })
+keymap.set("n", "<leader>fm", "<cmd> Telescope marks<cr>", { desc = "Find marks" })
