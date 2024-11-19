@@ -9,40 +9,32 @@ return {
         vim.g.loaded_netrwPlugin = 1
 
         nvimtree.setup({
-          view = {
-            width = 35,
-            relativenumber = true,
-          },
-          -- change folder arrow icons
-          renderer = {
-            indent_markers = {
-              enable = true,
+            view = {
+                width = 35,
+                relativenumber = true,
             },
-            icons = {
-              glyphs = {
-                folder = {
-                  arrow_closed = "", -- arrow when folder is closed
-                  arrow_open = "", -- arrow when folder is open
+            -- change folder arrow icons
+            renderer = {
+                indent_markers = {
+                    enable = true,
                 },
-              },
             },
-          },
-          -- disable window_picker for
-          -- explorer to work well with
-          -- window splits
-          actions = {
-            open_file = {
-              window_picker = {
-                enable = false,
-              },
+            -- disable window_picker for
+            -- explorer to work well with
+            -- window splits
+            actions = {
+                open_file = {
+                    window_picker = {
+                        enable = false,
+                    },
+                },
             },
-          },
-          filters = {
-            custom = { ".DS_Store" },
-          },
-          git = {
-            ignore = false,
-          },
+            filters = {
+                custom = { ".DS_Store" },
+            },
+            git = {
+                ignore = false,
+            },
         })
     end
 }
