@@ -2,7 +2,8 @@ local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 
-config.color_scheme = "OneDark (base16)"
+config.color_scheme = 'Tokyo Night Moon'
+
 
 config.font = wezterm.font("JetBrains Mono")
 config.font_size = 14
