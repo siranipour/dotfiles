@@ -8,7 +8,6 @@ return {
                 enabled = false,
             },
         },
-
     },
     -- stylua: ignore
     keys = {
