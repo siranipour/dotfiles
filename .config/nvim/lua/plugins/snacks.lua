@@ -18,7 +18,7 @@ return {
                         title = "Git Status",
                         section = "terminal",
                         enabled = Snacks.git.get_root() ~= nil,
-                        cmd = "git status -s",
+                        cmd = "git status -sb",
                         height = 5,
                         padding = 1,
                         ttl = 5 * 60,
