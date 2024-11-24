@@ -26,5 +26,5 @@ keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<cr>", { desc = "Find keyma
 keymap.set("n", "<leader>fm", "<cmd>Telescope marks<cr>", { desc = "Find marks" })
 keymap.set("n", "<leader>fy", "<cmd>Telescope neoclip<cr>", { desc = "Find marks" })
 
--- telescope file finding
+-- toggle zen mode
 keymap.set("n", "<leader>z", "<cmd>ZenMode<cr>", { desc = "Toggle Zen mode" })
