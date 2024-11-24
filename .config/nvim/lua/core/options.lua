@@ -36,3 +36,6 @@ opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 
 -- turn off swapfile
 opt.swapfile = false
+
+-- ruler to suggest line break
+opt.colorcolumn = "+1,100"
