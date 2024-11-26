@@ -39,3 +39,7 @@ opt.swapfile = false
 
 -- ruler to suggest line break
 opt.colorcolumn = "+1,100"
+
+-- enable spellchecking
+opt.spelllang = 'en_gb'
+opt.spell = true
