@@ -31,6 +31,9 @@ return {
                 find_files = {
                     file_ignore_patterns = { 'node_modules', '.git', '.venv' },
                     hidden = true
+                },
+                colorscheme = {
+                    enable_preview = true
                 }
             },
         })
