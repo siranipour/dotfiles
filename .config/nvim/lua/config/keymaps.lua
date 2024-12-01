@@ -28,3 +28,6 @@ keymap.set("n", "<leader>fy", "<cmd>Telescope neoclip<cr>", { desc = "Find marks
 
 -- toggle zen mode
 keymap.set("n", "<leader>z", "<cmd>ZenMode<cr>", { desc = "Toggle Zen mode" })
+
+-- toggle twilight
+keymap.set("n", "<leader>l", "<cmd>Twilight<cr>", { desc = "Toggle Twilight" })
