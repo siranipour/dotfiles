@@ -24,7 +24,8 @@ keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find str
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor" })
 keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<cr>", { desc = "Find keymaps" })
 keymap.set("n", "<leader>fm", "<cmd>Telescope marks<cr>", { desc = "Find marks" })
-keymap.set("n", "<leader>fy", "<cmd>Telescope neoclip<cr>", { desc = "Find marks" })
+keymap.set("n", "<leader>fy", "<cmd>Telescope neoclip<cr>", { desc = "Find clips" })
+keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find open buffers" })
 
 -- toggle zen mode
 keymap.set("n", "<leader>z", "<cmd>ZenMode<cr>", { desc = "Toggle Zen mode" })
