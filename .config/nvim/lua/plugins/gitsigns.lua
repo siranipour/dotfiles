@@ -5,10 +5,10 @@ return {
         current_line_blame = true,
         current_line_blame_opts = {
             virt_text_pos = 'eol',
-            virt_text_priority=2047,
+            virt_text_priority = 1,
             delay = 0,
         },
-        current_line_blame_formatter = '<author>, <author_time:%R> - <abbrev_sha>',
+        current_line_blame_formatter = '          <author>, <author_time:%R> - <abbrev_sha>',
         current_line_blame_formatter_nc = "",
         sign_priority = 100,
         on_attach = function(bufnr)
