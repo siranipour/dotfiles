@@ -21,4 +21,6 @@ config.window_close_confirmation = "NeverPrompt"
 config.max_fps = 144
 config.animation_fps = 144
 
+config.send_composed_key_when_left_alt_is_pressed = true
+
 return config
