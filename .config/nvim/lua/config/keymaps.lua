@@ -32,3 +32,7 @@ keymap.set("n", "<leader>z", "<cmd>ZenMode<cr>", { desc = "Toggle Zen mode" })
 
 -- toggle twilight
 keymap.set("n", "<leader>l", "<cmd>Twilight<cr>", { desc = "Toggle Twilight" })
+
+-- disable command history shortcut
+vim.api.nvim_set_keymap('n', 'q:', '<Nop>', { noremap = true, silent = true })
+
