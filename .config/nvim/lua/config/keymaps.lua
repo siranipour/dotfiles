@@ -26,6 +26,7 @@ keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<cr>", { desc = "Find keyma
 keymap.set("n", "<leader>fm", "<cmd>Telescope marks<cr>", { desc = "Find marks" })
 keymap.set("n", "<leader>fy", "<cmd>Telescope neoclip<cr>", { desc = "Find clips" })
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find open buffers" })
+keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find open TODOs" })
 
 -- toggle zen mode
 keymap.set("n", "<leader>z", "<cmd>ZenMode<cr>", { desc = "Toggle Zen mode" })
