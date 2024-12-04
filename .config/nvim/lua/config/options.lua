@@ -43,3 +43,6 @@ opt.colorcolumn = "+1,100"
 -- enable spellchecking
 opt.spelllang = 'en_gb'
 opt.spell = true
+
+-- show diagnostics in order of severity
+vim.diagnostic.config({ severity_sort = true })

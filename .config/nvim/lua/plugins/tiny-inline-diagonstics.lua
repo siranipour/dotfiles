@@ -6,7 +6,7 @@ return {
         priority = 1,
     },
     config = function()
-        vim.diagnostic.config({ virtual_text = false, severity_sort = true })
+        vim.diagnostic.config({ virtual_text = false })
         require('tiny-inline-diagnostic').setup()
     end
 }
