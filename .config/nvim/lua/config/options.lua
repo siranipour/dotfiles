@@ -22,7 +22,7 @@ opt.cursorline = true
 -- terminal options
 opt.termguicolors = true
 opt.background = "dark" -- colorschemes will try to use dark mode
-opt.signcolumn = "yes" -- show sign column so that text does not shift
+opt.signcolumn = "yes:2" -- show sign column so that text does not shift
 
 -- backspace
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
