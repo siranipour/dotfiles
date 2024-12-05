@@ -8,7 +8,7 @@ return {
 		vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "Debugger step into" })
 		vim.keymap.set("n", "<leader>do", dap.step_over, { desc = "Debugger step over" })
 		vim.keymap.set("n", "<leader>dq", dap.terminate, { desc = "Debugger quit" })
-		vim.keymap.set("n", "<leader>dr", dap.repl.open, { desc = "Dap open repl" })
-		vim.keymap.set("n", "<leader>du", dap.step_out, { desc = "Dap step out" })
+		vim.keymap.set("n", "<leader>dr", dap.restart, { desc = "Debugger restart" })
+		vim.keymap.set("n", "<leader>du", dap.step_out, { desc = "Debugger step out" })
     end,
 }
