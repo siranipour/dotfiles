@@ -28,6 +28,13 @@ return {
                 },
             },
             quickfile = { enabled = true },
+            scroll = {
+                enabled = true,
+                animate = {
+                    duration = { step = 15, total = 100 },
+                    easing = "linear",
+                },
+            },
         })
     end
 }
