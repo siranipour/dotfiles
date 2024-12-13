@@ -6,6 +6,7 @@ return {
         vim.diagnostic.config({ virtual_text = false })
         require('tiny-inline-diagnostic').setup({
             options = {
+                enable_on_insert = false,
                 break_line = {
                     enabled = true,
                     after = 30,
