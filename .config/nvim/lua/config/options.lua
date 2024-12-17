@@ -6,22 +6,22 @@ opt.number = true
 opt.relativenumber = true
 
 -- tabs & indentation
-opt.tabstop = 4 -- 4 spaces for tabs
-opt.shiftwidth = 4 -- 4 spaces for indent width
-opt.expandtab = true -- expand tab to spaces
+opt.tabstop = 4       -- 4 spaces for tabs
+opt.shiftwidth = 4    -- 4 spaces for indent width
+opt.expandtab = true  -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
 
-opt.wrap = false -- don't wrap text when overflowing current buffer
+opt.wrap = false      -- don't wrap text when overflowing current buffer
 
 -- search settings
 opt.ignorecase = true -- ignore case when searching
-opt.smartcase = true -- if mixed case is included, assume you want case-sensitive
+opt.smartcase = true  -- if mixed case is included, assume you want case-sensitive
 
 opt.cursorline = true
 
 -- terminal options
 opt.termguicolors = true
-opt.background = "dark" -- colorschemes will try to use dark mode
+opt.background = "dark"  -- colorschemes will try to use dark mode
 opt.signcolumn = "yes:2" -- show sign column so that text does not shift
 
 -- backspace
@@ -49,10 +49,32 @@ vim.diagnostic.config({ severity_sort = true })
 
 -- highlight on yank
 vim.api.nvim_create_autocmd('TextYankPost', {
-  group = vim.api.nvim_create_augroup('highlight_yank', {}),
-  desc = 'Hightlight selection on yank',
-  pattern = '*',
-  callback = function()
-    vim.highlight.on_yank { higroup = 'IncSearch', timeout = 50 }
-  end,
+    group = vim.api.nvim_create_augroup('highlight_yank', {}),
+    desc = 'Hightlight selection on yank',
+    pattern = '*',
+    callback = function()
+        vim.highlight.on_yank { higroup = 'IncSearch', timeout = 50 }
+    end,
 })
+
+-- enable inlay hints (e.g types)
+if vim.lsp.inlay_hint then
+  local function toggle_inlay_hints(enable)
+    vim.lsp.inlay_hint.enable(enable, { 0 })
+  end
+
+  -- Autocommand to enable inlay hints in Normal mode
+  vim.api.nvim_create_autocmd("InsertLeave", {
+    callback = function()
+      toggle_inlay_hints(true) -- Enable inlay hints
+    end,
+  })
+
+  -- Autocommand to disable inlay hints in Insert mode
+  vim.api.nvim_create_autocmd("InsertEnter", {
+    callback = function()
+      toggle_inlay_hints(false) -- Disable inlay hints
+    end,
+  })
+end
+
