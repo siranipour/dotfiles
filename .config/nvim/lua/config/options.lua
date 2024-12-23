@@ -45,7 +45,7 @@ opt.spelllang = 'en_gb'
 opt.spell = true
 
 -- show diagnostics in order of severity
-vim.diagnostic.config({ severity_sort = true })
+vim.diagnostic.config({ severity_sort = true, float = { border = "rounded" } })
 
 -- highlight on yank
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -59,22 +59,21 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- enable inlay hints (e.g types)
 if vim.lsp.inlay_hint then
-  local function toggle_inlay_hints(enable)
-    vim.lsp.inlay_hint.enable(enable, { 0 })
-  end
+    local function toggle_inlay_hints(enable)
+        vim.lsp.inlay_hint.enable(enable, { 0 })
+    end
 
-  -- Autocommand to enable inlay hints in Normal mode
-  vim.api.nvim_create_autocmd("InsertLeave", {
-    callback = function()
-      toggle_inlay_hints(true) -- Enable inlay hints
-    end,
-  })
+    -- Autocommand to enable inlay hints in Normal mode
+    vim.api.nvim_create_autocmd("InsertLeave", {
+        callback = function()
+            toggle_inlay_hints(true) -- Enable inlay hints
+        end,
+    })
 
-  -- Autocommand to disable inlay hints in Insert mode
-  vim.api.nvim_create_autocmd("InsertEnter", {
-    callback = function()
-      toggle_inlay_hints(false) -- Disable inlay hints
-    end,
-  })
+    -- Autocommand to disable inlay hints in Insert mode
+    vim.api.nvim_create_autocmd("InsertEnter", {
+        callback = function()
+            toggle_inlay_hints(false) -- Disable inlay hints
+        end,
+    })
 end
-
