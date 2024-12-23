@@ -28,7 +28,11 @@ return {
                 },
             },
             quickfile = { enabled = true },
-            indent = { enabled = true },
+            indent = {
+                enabled = true,
+                animate = { duration = { total = 250 } },
+                chunk = { enabled = true },
+            },
             scroll = {
                 enabled = true,
                 animate = {
