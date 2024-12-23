@@ -27,7 +27,9 @@ return {
                     { pane = 2, section = "startup" },
                 },
             },
-            quickfile = { enabled = true },
+            bigfile = { enabled = true },
+            notify = { enabled = true },
+            notifier = { enabled = true },
             indent = {
                 enabled = true,
                 animate = { duration = { total = 250 } },
