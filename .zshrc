@@ -53,7 +53,7 @@ alias ll="ls -l"
 # ---- bat (better cat) -----
 export BAT_THEME=OneHalfDark
 alias cat="bat -P"
-alias less="bat --pager less"
+alias less="bat --pager less --paging always"
 #
 # ---- zoxide (better cd) -----
 alias cd="z"
