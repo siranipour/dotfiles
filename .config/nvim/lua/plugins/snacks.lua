@@ -30,6 +30,13 @@ return {
             bigfile = { enabled = true },
             notify = { enabled = true },
             notifier = { enabled = true },
+            zen = { enabled = true },
+            dim = {
+                enabled = true,
+                scope = {
+                    siblings = false,
+                },
+            },
             indent = {
                 enabled = true,
                 animate = { duration = { total = 250 } },
@@ -42,5 +49,15 @@ return {
                 },
             },
         })
+        local toggle_dim = function()
+            if Snacks.dim.enabled then
+                Snacks.dim.disable()
+            else
+                Snacks.dim.enable()
+            end
+        end
+        vim.keymap.set("n", "<leader>l", toggle_dim, { desc = "Toggle dimming scope" })
+        vim.keymap.set("n", "<leader>z", function() Snacks.zen() end, { desc = "Toggle zen mode" })
+        vim.keymap.set("n", "<C-w>m", function() Snacks.zen.zoom() end, { desc = "Maximize/minimize a split" })
     end
 }

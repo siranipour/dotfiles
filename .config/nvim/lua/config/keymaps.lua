@@ -28,12 +28,6 @@ keymap.set("n", "<leader>fy", "<cmd>Telescope neoclip<cr>", { desc = "Find clips
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find open buffers" })
 keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find open TODOs" })
 
--- toggle zen mode
-keymap.set("n", "<leader>z", "<cmd>ZenMode<cr>", { desc = "Toggle Zen mode" })
-
--- toggle twilight
-keymap.set("n", "<leader>l", "<cmd>Twilight<cr>", { desc = "Toggle Twilight" })
-
 -- disable command history shortcut
 vim.api.nvim_set_keymap('n', 'q:', '<Nop>', { noremap = true, silent = true })
 
