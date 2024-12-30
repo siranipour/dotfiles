@@ -65,6 +65,6 @@ return {
         vim.keymap.set("n", "<leader>l", toggle_dim, { desc = "Toggle dimming scope" })
         vim.keymap.set("n", "<leader>z", function() Snacks.zen() end, { desc = "Toggle zen mode" })
         vim.keymap.set("n", "<C-w>m", function() Snacks.zen.zoom() end, { desc = "Maximize/minimize a split" })
-        vim.keymap.set("n", "<leader>lg", function() Snacks.lazygit() end, { desc = "Toggle lazygit" })
+        vim.keymap.set("n", "<leader>g", function() Snacks.lazygit() end, { desc = "Toggle lazygit" })
     end
 }
