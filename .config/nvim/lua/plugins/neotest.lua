@@ -6,7 +6,6 @@ return {
         "antoinemadec/FixCursorHold.nvim",
         "nvim-treesitter/nvim-treesitter",
         "nvim-neotest/neotest-python",
-        "mrcjkb/rustaceanvim",
     },
     config = function()
         local neotest = require("neotest")
@@ -15,7 +14,6 @@ return {
                 require("neotest-python")({
                     dap = { justMyCode = false },
                 }),
-                require('rustaceanvim.neotest'),
             },
         })
         vim.keymap.set("n", "<leader>tn", function() neotest.run.run() end, { desc = "Run nearest test" })
