@@ -31,3 +31,5 @@ keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find open TODO
 -- disable command history shortcut
 vim.api.nvim_set_keymap('n', 'q:', '<Nop>', { noremap = true, silent = true })
 
+keymap.set("n", "<leader>h", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end,
+    { desc = "Toggle inlay hints" })
