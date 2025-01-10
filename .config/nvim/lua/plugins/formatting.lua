@@ -19,6 +19,10 @@ return {
             },
         })
 
+        require("conform").formatters.black = {
+            prepend_args = { "-l", "100" },
+        }
+
         vim.keymap.set({ "n", "v" }, "<leader>mp", function()
             conform.format({
                 lsp_fallback = true,
