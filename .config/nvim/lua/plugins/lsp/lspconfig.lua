@@ -72,6 +72,18 @@ return {
                     capabilities = capabilities,
                 })
             end,
+            ["basedpyright"] = function()
+                lspconfig["basedpyright"].setup({
+                    capabilities = capabilities,
+                    settings = {
+                        basedpyright = {
+                            analysis = {
+                                typeCheckingMode = "basic",
+                            },
+                        },
+                    },
+                })
+            end,
         })
     end
 }
