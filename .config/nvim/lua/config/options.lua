@@ -11,6 +11,9 @@ opt.shiftwidth = 4    -- 4 spaces for indent width
 opt.expandtab = true  -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
 
+-- center cursor
+opt.scrolloff = 999
+
 opt.wrap = false      -- don't wrap text when overflowing current buffer
 
 -- search settings
