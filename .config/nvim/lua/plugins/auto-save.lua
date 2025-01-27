@@ -8,5 +8,12 @@ return {
     },
     opts = {
         debounce_delay = 100,
+        condition = function(buf)
+            local filetype = vim.fn.getbufvar(buf, "&filetype")
+            if vim.list_contains({ "oil" }, filetype) then
+                return false
+            end
+            return true
+        end,
     },
 }
