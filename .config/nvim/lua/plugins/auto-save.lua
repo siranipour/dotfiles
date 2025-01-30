@@ -10,7 +10,7 @@ return {
         debounce_delay = 100,
         condition = function(buf)
             local filetype = vim.fn.getbufvar(buf, "&filetype")
-            if vim.list_contains({ "oil" }, filetype) then
+            if vim.list_contains({ "oil", "harpoon" }, filetype) then
                 return false
             end
             return true
