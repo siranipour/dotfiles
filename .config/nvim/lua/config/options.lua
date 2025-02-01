@@ -14,7 +14,7 @@ opt.autoindent = true -- copy indent from current line when starting new one
 -- center cursor
 opt.scrolloff = 999
 
-opt.wrap = false      -- don't wrap text when overflowing current buffer
+opt.wrap = false -- don't wrap text when overflowing current buffer
 
 -- search settings
 opt.ignorecase = true -- ignore case when searching
@@ -48,6 +48,7 @@ opt.spelllang = 'en_gb'
 opt.spell = true
 
 -- show diagnostics in order of severity
+-- TODO: add virtual_lines=true here once nvim v0.11 is released (and toggle with leader-h)
 vim.diagnostic.config({ severity_sort = true, float = { border = "rounded" } })
 
 -- highlight on yank
@@ -59,4 +60,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
         vim.highlight.on_yank { higroup = 'IncSearch', timeout = 50 }
     end,
 })
-
