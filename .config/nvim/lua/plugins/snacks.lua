@@ -90,7 +90,17 @@ return {
                     { pane = 2, section = "startup" },
                 },
             },
-            picker = { enabled = true },
+            picker = {
+                enabled = true,
+                win = {
+                    input = {
+                        keys = {
+                            ["<C-h>"] = { "toggle_hidden", mode = { "i", "n" } },
+                            ["<C-i>"] = { "toggle_ignored", mode = { "i", "n" } },
+                        }
+                    }
+                }
+            },
             bigfile = { enabled = true },
             quickfile = { enabled = true },
             notify = { enabled = true },
