@@ -92,6 +92,7 @@ return {
             },
             picker = { enabled = true },
             bigfile = { enabled = true },
+            quickfile = { enabled = true },
             notify = { enabled = true },
             notifier = { enabled = true },
             zen = { enabled = true, win = { backdrop = { transparent = false, blend = 99 } } },
