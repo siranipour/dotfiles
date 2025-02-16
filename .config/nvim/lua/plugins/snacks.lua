@@ -107,6 +107,7 @@ return {
             notifier = { enabled = true },
             zen = { enabled = true, win = { backdrop = { transparent = false, blend = 99 } } },
             lazygit = { enabled = true },
+            input = { enabled = true },
             dim = {
                 enabled = true,
                 scope = {
