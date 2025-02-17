@@ -108,6 +108,7 @@ return {
             zen = { enabled = true, win = { backdrop = { transparent = false, blend = 99 } } },
             lazygit = { enabled = true },
             input = { enabled = true },
+            statuscolumn = { enabled = true, left = { "sign" } },
             dim = {
                 enabled = true,
                 scope = {
