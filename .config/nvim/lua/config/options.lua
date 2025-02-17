@@ -63,3 +63,36 @@ vim.api.nvim_create_autocmd('TextYankPost', {
         vim.highlight.on_yank { higroup = 'IncSearch', timeout = 50 }
     end,
 })
+
+
+-- Setup icons for DAP (Debug Adapter Protocol)
+local dap_icons = {
+  Stopped             = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
+  Breakpoint          = " ",
+  BreakpointCondition = " ",
+  BreakpointRejected  = { " ", "DiagnosticError" },
+  LogPoint            = ".>",
+}
+
+-- Define DAP signs
+for name, icon in pairs(dap_icons) do
+  if type(icon) == "table" then
+    vim.fn.sign_define("Dap" .. name, { text = icon[1], texthl = icon[2], linehl = icon[3] or "" })
+  else
+    vim.fn.sign_define("Dap" .. name, { text = icon, texthl = "DiagnosticInfo" })
+  end
+end
+
+-- Setup icons for diagnostics
+local diagnostic_icons = {
+  Error = " ",
+  Warn  = " ",
+  Hint  = " ",
+  Info  = " ",
+}
+
+-- Define diagnostic signs
+for name, icon in pairs(diagnostic_icons) do
+  vim.fn.sign_define("DiagnosticSign" .. name, { text = icon, texthl = "Diagnostic" .. name })
+end
+
