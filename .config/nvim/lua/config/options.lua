@@ -14,6 +14,9 @@ opt.autoindent = true -- copy indent from current line when starting new one
 -- one status line across all splits
 opt.laststatus = 3
 
+-- automatically update when file changes on disk
+opt.autoread = true
+
 -- center cursor
 opt.scrolloff = 999
 
