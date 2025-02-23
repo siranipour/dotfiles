@@ -21,6 +21,8 @@ return {
         { "<leader>z",   function() require('snacks').zen() end,                                            desc = "Toggle zen mode" },
         { "<C-w>m",      function() require('snacks').zen.zoom() end,                                       desc = "Maximize/minimize a split" },
         { "<leader>g",   function() require('snacks').lazygit() end,                                        desc = "Toggle lazygit" },
+        { "]w",          function() require('snacks').words.jump(vim.v.count1) end,                         desc = "Jump to next word" },
+        { "[w",          function() require('snacks').words.jump(-vim.v.count1) end,                        desc = "Jump to previous word" },
 
         { "<leader>ff",  function() require('snacks').picker.files() end,                                   desc = "Files" },
         { "<leader>fF",  function() require('snacks').picker.files({ hidden = true }) end,                  desc = "Files (all)" },
@@ -108,6 +110,7 @@ return {
             zen = { enabled = true, win = { backdrop = { transparent = false, blend = 99 } } },
             lazygit = { enabled = true },
             input = { enabled = true },
+            words = { enabled = true },
             statuscolumn = { enabled = true, left = { "sign" } },
             dim = {
                 enabled = true,
