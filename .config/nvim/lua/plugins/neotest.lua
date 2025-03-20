@@ -17,6 +17,8 @@ return {
             },
         })
         vim.keymap.set("n", "<leader>tn", function() neotest.run.run() end, { desc = "Run nearest test" })
+        vim.keymap.set("n", "<leader>td", function() neotest.run.run({ strategy = "dap" }) end,
+            { desc = "Run test with debugger" })
         vim.keymap.set("n", "<leader>ta", function() neotest.run.run(vim.fn.expand("%")) end,
             { desc = "Run all tests in file" })
     end
