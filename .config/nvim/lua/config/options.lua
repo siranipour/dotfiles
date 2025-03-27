@@ -54,8 +54,7 @@ opt.spelllang = 'en_gb'
 opt.spell = true
 
 -- show diagnostics in order of severity
--- TODO: add virtual_lines=true here once nvim v0.11 is released (and toggle with leader-h)
-vim.diagnostic.config({ severity_sort = true, float = { border = "rounded" } })
+vim.diagnostic.config({ virtual_lines = true, severity_sort = true, float = { border = "rounded" } })
 
 -- highlight on yank
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -70,32 +69,31 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- Setup icons for DAP (Debug Adapter Protocol)
 local dap_icons = {
-  Stopped             = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
-  Breakpoint          = " ",
-  BreakpointCondition = " ",
-  BreakpointRejected  = { " ", "DiagnosticError" },
-  LogPoint            = ".>",
+    Stopped             = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
+    Breakpoint          = " ",
+    BreakpointCondition = " ",
+    BreakpointRejected  = { " ", "DiagnosticError" },
+    LogPoint            = ".>",
 }
 
 -- Define DAP signs
 for name, icon in pairs(dap_icons) do
-  if type(icon) == "table" then
-    vim.fn.sign_define("Dap" .. name, { text = icon[1], texthl = icon[2], linehl = icon[3] or "" })
-  else
-    vim.fn.sign_define("Dap" .. name, { text = icon, texthl = "DiagnosticInfo" })
-  end
+    if type(icon) == "table" then
+        vim.fn.sign_define("Dap" .. name, { text = icon[1], texthl = icon[2], linehl = icon[3] or "" })
+    else
+        vim.fn.sign_define("Dap" .. name, { text = icon, texthl = "DiagnosticInfo" })
+    end
 end
 
 -- Setup icons for diagnostics
 local diagnostic_icons = {
-  Error = " ",
-  Warn  = " ",
-  Hint  = " ",
-  Info  = " ",
+    Error = " ",
+    Warn  = " ",
+    Hint  = " ",
+    Info  = " ",
 }
 
 -- Define diagnostic signs
 for name, icon in pairs(diagnostic_icons) do
-  vim.fn.sign_define("DiagnosticSign" .. name, { text = icon, texthl = "Diagnostic" .. name })
+    vim.fn.sign_define("DiagnosticSign" .. name, { text = icon, texthl = "Diagnostic" .. name })
 end
-

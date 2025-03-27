@@ -1,4 +1,4 @@
-vim.g.mapleader = " " -- map leader to spacebar
+vim.g.mapleader = " "       -- map leader to spacebar
 vim.g.maplocalleader = "\\" -- map localleader to backslash
 
 local keymap = vim.keymap
@@ -16,7 +16,5 @@ keymap.set("n", "<ESC><ESC>", "<cmd>nohl<CR>", { desc = "Clear search highlight"
 -- disable command history shortcut
 vim.api.nvim_set_keymap('n', 'q:', '<Nop>', { noremap = true, silent = true })
 
--- TODO: add toggle of virtual lines here in new nvim release
--- vim.diagnostic.config({ virtual_lines = not vim.diagnostic.config().virtual_lines })
 keymap.set("n", "<localleader>h", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end,
     { desc = "Toggle inlay hints" })
