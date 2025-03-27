@@ -94,6 +94,13 @@ local diagnostic_icons = {
 }
 
 -- Define diagnostic signs
-for name, icon in pairs(diagnostic_icons) do
-    vim.fn.sign_define("DiagnosticSign" .. name, { text = icon, texthl = "Diagnostic" .. name })
-end
+vim.diagnostic.config({
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = diagnostic_icons.Error,
+            [vim.diagnostic.severity.WARN]  = diagnostic_icons.Warn,
+            [vim.diagnostic.severity.HINT]  = diagnostic_icons.Hint,
+            [vim.diagnostic.severity.INFO]  = diagnostic_icons.Info,
+        },
+    },
+})
