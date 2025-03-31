@@ -18,3 +18,20 @@ vim.api.nvim_set_keymap('n', 'q:', '<Nop>', { noremap = true, silent = true })
 
 keymap.set("n", "<localleader>h", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end,
     { desc = "Toggle inlay hints" })
+
+local function toggle_diagnostics_display()
+    local current_config = vim.diagnostic.config()
+    if current_config.virtual_lines then
+        vim.diagnostic.config({
+            virtual_lines = false,
+            virtual_text = true,
+        })
+    else
+        vim.diagnostic.config({
+            virtual_lines = true,
+            virtual_text = false,
+        })
+    end
+end
+
+vim.keymap.set("n", "<localleader>d", toggle_diagnostics_display, { desc = " Toggle diagnostics display mode" })

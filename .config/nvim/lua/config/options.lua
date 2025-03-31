@@ -54,7 +54,7 @@ opt.spelllang = 'en_gb'
 opt.spell = true
 
 -- show diagnostics in order of severity
-vim.diagnostic.config({ virtual_lines = true, severity_sort = true, float = { border = "rounded" } })
+vim.diagnostic.config({ virtual_text = true, severity_sort = true, float = { border = "rounded" } })
 
 -- highlight on yank
 vim.api.nvim_create_autocmd('TextYankPost', {
