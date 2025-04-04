@@ -84,23 +84,3 @@ for name, icon in pairs(dap_icons) do
         vim.fn.sign_define("Dap" .. name, { text = icon, texthl = "DiagnosticInfo" })
     end
 end
-
--- Setup icons for diagnostics
-local diagnostic_icons = {
-    Error = " ",
-    Warn  = " ",
-    Hint  = " ",
-    Info  = " ",
-}
-
--- Define diagnostic signs
-vim.diagnostic.config({
-    signs = {
-        text = {
-            [vim.diagnostic.severity.ERROR] = diagnostic_icons.Error,
-            [vim.diagnostic.severity.WARN]  = diagnostic_icons.Warn,
-            [vim.diagnostic.severity.HINT]  = diagnostic_icons.Hint,
-            [vim.diagnostic.severity.INFO]  = diagnostic_icons.Info,
-        },
-    },
-})
