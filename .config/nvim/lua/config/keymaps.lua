@@ -19,7 +19,6 @@ vim.api.nvim_set_keymap('n', 'q:', '<Nop>', { noremap = true, silent = true })
 keymap.set("n", "<localleader>h", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end,
     { desc = "Toggle inlay hints" })
 
--- Setup icons for diagnostics
 local diagnostic_icons = {
     Error = " ",
     Warn  = " ",
@@ -36,48 +35,87 @@ local signs = {
     },
 }
 
-local diagnostic_configs = {
+local diag_display_modes = {
     {
-        virtual_text = false,
-        virtual_lines = false,
-        underline = false,
-        signs = false,
-
+        name = "None",
+        config = {
+            virtual_text = false,
+            virtual_lines = false,
+            signs = false,
+            underline = false,
+        },
     },
     {
-        virtual_text = false,
-        virtual_lines = false,
-        underline = true,
-        signs = signs,
+        name = "Minimal",
+        config = {
+            virtual_text = false,
+            virtual_lines = false,
+            signs = signs,
+            underline = true,
+        },
     },
     {
-        virtual_text = true,
-        virtual_lines = false,
-        underline = true,
-        signs = signs,
+        name = "Inline",
+        config = {
+            virtual_text = true,
+            virtual_lines = false,
+            signs = signs,
+            underline = true,
+        },
     },
     {
-        virtual_text = false,
-        virtual_lines = true,
-        underline = true,
-        signs = signs,
-    }
+        name = "Verbose",
+        config = {
+            virtual_text = false,
+            virtual_lines = true,
+            signs = signs,
+            underline = true,
+        },
+    },
 }
 
-_G.current_level = 1
-local function set_diagnostic(level)
-    _G.current_level = level
-    vim.diagnostic.config(diagnostic_configs[level])
+local current_severity_index = #vim.diagnostic.severity
+_G.min_diagnostic_severity = vim.diagnostic.severity[current_severity_index]
+local current_diag_mode = 2
+_G.diagnostic_mode_index = current_diag_mode
+
+local function apply_diagnostic_config()
+    local severity = vim.diagnostic.severity[current_severity_index]
+    local display = diag_display_modes[current_diag_mode].config
+
+    _G.min_diagnostic_severity = severity
+    _G.diagnostic_mode_index = current_diag_mode
+
+    vim.diagnostic.config({
+        virtual_text = display.virtual_text and { severity = { min = severity } } or false,
+        virtual_lines = display.virtual_lines and { severity = { min = severity } } or false,
+        signs = display.signs and vim.tbl_extend("error",
+            signs,
+            { severity = { min = severity },
+            }) or false,
+        underline = display.underline and { severity = { min = severity } } or false,
+        severity_sort = true,
+    })
 end
 
-local function increment_diagnostic()
-    local level = _G.current_level
-    if level + 1 > #diagnostic_configs then
-        set_diagnostic(1)
-    else
-        set_diagnostic(level + 1)
-    end
+function _G.increase_min_severity()
+    current_severity_index = ((current_severity_index - 2) % #vim.diagnostic.severity) + 1
+    _G.min_diagnostic_severity = vim.diagnostic.severity[current_severity_index]
+    vim.notify("Diagnostic Severity: " .. _G.min_diagnostic_severity)
+    apply_diagnostic_config()
 end
 
-set_diagnostic(_G.current_level)
-vim.keymap.set("n", "<localleader>d", increment_diagnostic, { desc = "Cycle diagnostics display (Off > Lite > Text > Lines)" })
+function _G.toggle_diag_display_mode()
+    current_diag_mode = (current_diag_mode % #diag_display_modes) + 1
+    _G.diagnostic_mode_index = current_diag_mode
+    vim.notify("Diagnostic Mode: " .. diag_display_modes[current_diag_mode].name)
+    apply_diagnostic_config()
+end
+
+apply_diagnostic_config()
+
+vim.keymap.set("n", "<localleader>D", increase_min_severity,
+    { noremap = true, silent = true, desc = "Cycle diagnostic minimum severity" })
+
+vim.keymap.set("n", "<localleader>d", toggle_diag_display_mode,
+    { noremap = true, silent = true, desc = "Cycle diagnostic display mode" })
