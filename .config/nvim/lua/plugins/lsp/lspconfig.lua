@@ -61,6 +61,17 @@ return {
                 })
             end,
             ["basedpyright"] = function()
+                local function filter_basedpyright_diagnostics(_, result, ctx, config)
+                    local filtered = {}
+                    for _, diag in ipairs(result.diagnostics) do
+                        if diag.severity == vim.diagnostic.severity.ERROR then
+                            table.insert(filtered, diag)
+                        end
+                    end
+                    result.diagnostics = filtered
+                    vim.lsp.diagnostic.on_publish_diagnostics(_, result, ctx, config)
+                end
+
                 lspconfig["basedpyright"].setup({
                     capabilities = capabilities,
                     settings = {
@@ -70,8 +81,11 @@ return {
                             },
                         },
                     },
+                    handlers = {
+                        ["textDocument/publishDiagnostics"] = filter_basedpyright_diagnostics
+                    },
                 })
-            end,
+            end
         })
     end
 }

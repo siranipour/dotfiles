@@ -76,7 +76,7 @@ local diag_display_modes = {
 
 local current_severity_index = #vim.diagnostic.severity
 _G.min_diagnostic_severity = vim.diagnostic.severity[current_severity_index]
-local current_diag_mode = 2
+local current_diag_mode = 3
 _G.diagnostic_mode_index = current_diag_mode
 
 local function apply_diagnostic_config()
