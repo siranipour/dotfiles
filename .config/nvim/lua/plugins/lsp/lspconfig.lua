@@ -53,39 +53,31 @@ return {
         -- used to enable autocompletion (assign to every lsp server config)
         local capabilities = blink.get_lsp_capabilities()
 
-        mason_lspconfig.setup_handlers({
-            -- default handler for installed servers
-            function(server_name)
-                lspconfig[server_name].setup({
-                    capabilities = capabilities,
-                })
-            end,
-            ["basedpyright"] = function()
-                local function filter_basedpyright_diagnostics(_, result, ctx, config)
-                    local filtered = {}
-                    for _, diag in ipairs(result.diagnostics) do
-                        if diag.severity == vim.diagnostic.severity.ERROR then
-                            table.insert(filtered, diag)
-                        end
-                    end
-                    result.diagnostics = filtered
-                    vim.lsp.diagnostic.on_publish_diagnostics(_, result, ctx, config)
+        -- Custom diagnostic filter for basedpyright
+        local function filter_basedpyright_diagnostics(_, result, ctx, config)
+            local filtered = {}
+            for _, diag in ipairs(result.diagnostics) do
+                if diag.severity == vim.diagnostic.severity.ERROR then
+                    table.insert(filtered, diag)
                 end
-
-                lspconfig["basedpyright"].setup({
-                    capabilities = capabilities,
-                    settings = {
-                        basedpyright = {
-                            analysis = {
-                                typeCheckingMode = "off",
-                            },
-                        },
-                    },
-                    handlers = {
-                        ["textDocument/publishDiagnostics"] = filter_basedpyright_diagnostics
-                    },
-                })
             end
+            result.diagnostics = filtered
+            vim.lsp.handlers["textDocument/publishDiagnostics"](_, result, ctx, config)
+        end
+
+        -- Configure basedpyright specifically with diagnostic filtering
+        vim.lsp.config('basedpyright', {
+            capabilities = capabilities,
+            settings = {
+                basedpyright = {
+                    analysis = {
+                        typeCheckingMode = "off",
+                    },
+                },
+            },
+            handlers = {
+                ["textDocument/publishDiagnostics"] = filter_basedpyright_diagnostics
+            },
         })
     end
 }
