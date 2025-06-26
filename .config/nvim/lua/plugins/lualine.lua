@@ -49,7 +49,7 @@ return {
                 },
                 lualine_c = {
                     'filename',
-                    { jj_status, icon = '' },
+                    { jj_status, icon = '', color = {fg = '#ff9e64'}},
                     -- 'diff'
                 }
             },
