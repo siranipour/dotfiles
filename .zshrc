@@ -39,6 +39,10 @@ alias less="bat --pager less --paging always"
 alias cd="z"
 alias ..="cd .."
 
+# ---- Neovim ----
+alias v="nvim"
+
+
 # ---- Zoxide (better cd) ----
 eval "$(zoxide init zsh)"
 
